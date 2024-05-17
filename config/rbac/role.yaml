@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - federatedcredential.arthurvardevanyan.com
+  resources:
+  - tokens
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - federatedcredential.arthurvardevanyan.com
+  resources:
+  - tokens/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - federatedcredential.arthurvardevanyan.com
+  resources:
+  - tokens/status
+  verbs:
+  - get
+  - patch
+  - update
